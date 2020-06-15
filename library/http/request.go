@@ -8,14 +8,14 @@ import (
 	"net/http"
 )
 
-type HttpClient struct {}
+type Client struct {}
 
 
-func (c *HttpClient) Post(url string, body io.Reader) ([]byte, error) {
+func (c *Client) Post(url string, body io.Reader) ([]byte, error) {
 	return request(url, "POST", body)
 }
 
-func (c *HttpClient) Get(url string) ([]byte, error) {
+func (c *Client) Get(url string) ([]byte, error) {
 	return request(url, "GET", nil)
 }
 
@@ -32,7 +32,6 @@ func request(url string, method string, body io.Reader) ([]byte, error) {
 		return nil, err
 	}
 
-	//处理返回结果
 	response, err := client.Do(request)
 
 	if err != nil {

@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	cmd.Server()
+	cmd.HttpServer()
 }

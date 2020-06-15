@@ -1,15 +1,16 @@
 package cmd
 
-import "github.com/gin-gonic/gin"
+import (
+	"5conf/router"
+	"github.com/gin-gonic/gin"
+)
 
-func Server() {
-	r := gin.Default()
+func HttpServer() {
+	server := gin.New()
 
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	server.Use(gin.Recovery())
 
-	r.Run()
+	router.InitRouter(server)
+
+	server.Run()
 }

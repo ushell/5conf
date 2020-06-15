@@ -6,8 +6,4 @@ const (
 	ERROR   = 1
 
 	ErrorParams = 2
-
-	SmsApiError = 10001
-	SmsInternalError = 10002
-
 )
